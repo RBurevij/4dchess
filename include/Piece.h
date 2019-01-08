@@ -2,6 +2,7 @@
 #define PIECE_H
 #define WHITE 1
 #define BLACK 0
+#define NOCOLOR 3
 #define NONE 0
 #define PAWN 1
 #define ROOK 2
@@ -18,7 +19,8 @@ class Piece
         Piece(){};
         virtual ~Piece(){};
         bool virtual moveLegality(int i, int j, int k ,int w, int ii, int jj, int kk, int ww, Piece* board[4][4][4][4]){return false;};
-        bool color, nihil;
+        int color; 
+        bool nihil;
         sf::Texture texture;
         sf::Sprite sprite;
 };
@@ -69,7 +71,7 @@ class King : public Piece{
 
 class Empty : public Piece{
 public:
-    Empty(){nihil = 1;};
+    Empty(){nihil = 1; color = NOCOLOR};
     ~Empty(){};
 };
 
